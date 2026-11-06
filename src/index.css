@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --brand-gold: #B38E5D; /* Elegant luxury bronze-gold */
+  --brand-gold-hover: #9E794B;
+  --brand-dark-bg: #F7F5F0; /* Soft warm luxury light-beige background */
+  --brand-card-bg: #FFFFFF; /* Pure crisp white cards for depth and hierarchy */
+  --brand-card-header: #FAF7F2; /* Soft warm-beige headers */
+  --brand-input-bg: #F0EBE0; /* Warm sand-beige for inputs and nested blocks */
+  --brand-border: #E5DED0; /* Subtle sand-gold luxury borders */
+  --brand-border-focus: #B38E5D; /* Focused gold border */
+  --brand-text-primary: #1C1814; /* Deep rich dark charcoal/brown for headings/primary text */
+  --brand-text-secondary: #5F5245; /* Soft dark bronze-gray for paragraph text */
+  --brand-text-muted: #8E8273; /* Muted sand-bronze text */
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-hover: var(--brand-gold-hover);
+  --color-brand-dark-bg: var(--brand-dark-bg);
+  --color-brand-card-bg: var(--brand-card-bg);
+  --color-brand-card-header: var(--brand-card-header);
+  --color-brand-input-bg: var(--brand-input-bg);
+  --color-brand-border: var(--brand-border);
+  --color-brand-border-focus: var(--brand-border-focus);
+}
+
+body {
+  background-color: var(--brand-dark-bg);
+  color: var(--brand-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Map existing hardcoded dark-theme text color classes dynamically to support light beige mode */
+.text-\[\#F5F2EB\], 
+.text-slate-100,
+.text-slate-200, 
+.text-white {
+  color: var(--brand-text-primary) !important;
+}
+
+.text-\[\#D1C9BC\], 
+.text-slate-300, 
+.text-slate-400 {
+  color: var(--brand-text-secondary) !important;
+}
+
+.text-\[\#9C8F7E\], 
+.text-slate-500,
+.text-slate-600 {
+  color: var(--brand-text-muted) !important;
+}
+
+/* Ensure items with gold background remain perfectly legible with dark text */
+.bg-brand-gold,
+button.bg-brand-gold,
+button.bg-brand-gold *,
+a.bg-brand-gold {
+  color: #12100E !important;
+}
+
+/* Ensure selection uses high contrast */
+::selection {
+  background-color: var(--brand-gold) !important;
+  color: #12100E !important;
+}
+
+/* Luxury Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--brand-dark-bg);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--brand-gold);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-gold-hover);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Make positive and negative changes highly legible, vibrant, and readable in light mode */
+.text-emerald-400 {
+  color: #10B981 !important; /* Vivid emerald green */
+}
+.text-rose-400 {
+  color: #EF4444 !important; /* Vivid ruby/rose red */
+}
+.text-brand-gold {
+  color: #B38E5D !important; /* Solid elegant gold */
+}
+
+.text-white-pure {
+  color: #ffffff !important; /* Pure white color guaranteed */
+}
+

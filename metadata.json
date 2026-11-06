@@ -1,0 +1,6 @@
+{
+  "name": "Executive Revenue RMS",
+  "description": "Executive CRM, RMS, and BI analytics simulator for the General Manager, with dynamic TRevPAR/GOPPAR modeling and AI strategic advisories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
