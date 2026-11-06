@@ -226,7 +226,7 @@ export default function App() {
     <div className="h-screen w-screen bg-brand-dark-bg text-[#F5F2EB] flex font-sans selection:bg-brand-gold selection:text-brand-dark-bg overflow-hidden">
       
       {/* Premium Luxury Sidebar Navigation - Stationary & Expanded */}
-      <aside className={`h-screen max-h-screen bg-neutral-950 border-r border-amber-500/20 transition-all duration-300 flex flex-col justify-between shrink-0 z-30 select-none overflow-hidden ${isCollapsed ? 'w-[70px]' : 'w-[440px]'}`}>
+      <aside className={`h-screen max-h-screen bg-neutral-950 border-r border-amber-500/20 transition-all duration-300 flex flex-col justify-between shrink-0 z-30 select-none overflow-hidden ${isCollapsed ? 'w-[70px]' : 'w-[380px]'}`}>
         <div className="flex-1 overflow-x-hidden overflow-y-auto scrollbar-none min-h-0">
           {/* Header / Logo */}
           <div className="p-4 border-b border-brand-border/40 flex items-center justify-between shrink-0">
