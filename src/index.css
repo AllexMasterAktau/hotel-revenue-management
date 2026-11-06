@@ -114,3 +114,14 @@ a.bg-brand-gold {
   color: #ffffff !important; /* Pure white color guaranteed */
 }
 
+/* Hide scrollbars for stationary UI panels */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

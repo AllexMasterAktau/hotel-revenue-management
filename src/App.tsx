@@ -138,12 +138,12 @@ export default function App() {
   const getTabTitle = (tab: string) => {
     if (language === 'ru') {
       switch (tab) {
-        case 'overview': return 'Главная (Overview)';
-        case 'whatif': return 'Моделирование (What-If)';
-        case 'ancillary': return 'Доп. доходы (POS)';
+        case 'overview': return 'Главная (Обзор)';
+        case 'whatif': return 'Моделирование (Что-Если)';
+        case 'ancillary': return 'Доп. доход (POS)';
         case 'crm': return 'Аналитика (CRM)';
         case 'compset': return 'Рынок (Compset)';
-        case 'salesmarketing': return 'Sales & Marketing';
+        case 'salesmarketing': return 'Продажи и маркетинг (Sales)';
         case 'frontoffice': return 'Front Office & Reception';
         case 'spa': return 'Anjana SPA & Wellness';
         case 'fb': return 'F&B & Рестораны';
@@ -182,8 +182,8 @@ export default function App() {
       <button
         key={tabId}
         onClick={() => setActiveTab(tabId)}
-        className={`w-full group relative flex items-center transition-all cursor-pointer ${
-          isCollapsed ? 'justify-center py-3 px-1' : 'px-3.5 py-2.5 my-1 rounded-lg'
+        className={`w-full group relative flex items-center transition-all cursor-pointer overflow-hidden ${
+          isCollapsed ? 'justify-center py-2.5 px-1' : 'px-3.5 py-2 my-0.5 rounded-lg'
         } ${
           isActive 
             ? 'bg-[#B38E5D] text-neutral-950 font-bold shadow-lg shadow-[#B38E5D]/15 border-l-4 border-amber-500' 
@@ -200,12 +200,12 @@ export default function App() {
           )}
         </div>
         {!isCollapsed && (
-          <span className="ml-3 text-xs tracking-wide whitespace-nowrap font-medium flex-1 text-left">
+          <span className="ml-3 text-xs tracking-wide whitespace-nowrap font-medium text-left">
             {label}
           </span>
         )}
         {!isCollapsed && isDept && status && (
-          <span className={`ml-2 text-[10px] font-mono px-2 py-0.5 rounded font-bold shrink-0 uppercase tracking-wider ${
+          <span className={`ml-auto text-[10px] font-mono px-2 py-0.5 rounded font-bold shrink-0 uppercase tracking-wider ${
             status === 'updated'
               ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20'
               : 'bg-amber-500/15 text-amber-400 border border-amber-500/20 animate-pulse'
@@ -225,11 +225,11 @@ export default function App() {
   return (
     <div className="h-screen w-screen bg-brand-dark-bg text-[#F5F2EB] flex font-sans selection:bg-brand-gold selection:text-brand-dark-bg overflow-hidden">
       
-      {/* Premium Luxury Sidebar Navigation */}
-      <aside className={`h-screen bg-neutral-950 border-r border-amber-500/20 transition-all duration-300 flex flex-col justify-between shrink-0 z-30 ${isCollapsed ? 'w-[70px]' : 'w-[360px]'}`}>
-        <div className="flex-1 overflow-y-auto min-h-0">
+      {/* Premium Luxury Sidebar Navigation - Stationary & Expanded */}
+      <aside className={`h-screen max-h-screen bg-neutral-950 border-r border-amber-500/20 transition-all duration-300 flex flex-col justify-between shrink-0 z-30 select-none overflow-hidden ${isCollapsed ? 'w-[70px]' : 'w-[440px]'}`}>
+        <div className="flex-1 overflow-x-hidden overflow-y-auto scrollbar-none min-h-0 flex flex-col justify-between py-1">
           {/* Header / Logo */}
-          <div className="p-4 border-b border-brand-border/40 flex items-center justify-between">
+          <div className="p-4 border-b border-brand-border/40 flex items-center justify-between shrink-0">
             <div className="flex items-center space-x-3.5 overflow-hidden">
               <div className="h-10 w-10 rounded-lg bg-[#B38E5D] flex items-center justify-center shadow-lg shadow-[#B38E5D]/20 shrink-0">
                 <span className="font-display font-black text-neutral-950 text-xl tracking-wider">R</span>
@@ -248,18 +248,18 @@ export default function App() {
           </div>
 
           {/* Navigation Groups */}
-          <div className="p-3 space-y-5">
+          <div className="p-3 space-y-3.5">
             {/* Group 1: Главное управление */}
             <div>
               {!isCollapsed && (
-                <p className="text-[9px] font-mono font-bold tracking-wider text-[#9C8F7E] uppercase px-3 mb-2">
+                <p className="text-[9px] font-mono font-bold tracking-wider text-[#9C8F7E] uppercase px-3 mb-1.5">
                   {language === 'ru' ? 'ГЛАВНОЕ УПРАВЛЕНИЕ' : 'MAIN CONTROL'}
                 </p>
               )}
-              <div className="space-y-1">
-                {renderSidebarItem('overview', <LayoutDashboard className="h-4 w-4" />, '📊 Главная (Overview)', '📊 Overview')}
-                {renderSidebarItem('whatif', <Sliders className="h-4 w-4" />, '🎛️ Моделирование (What-If)', '🎛️ What-If Simulation')}
-                {renderSidebarItem('ancillary', <Landmark className="h-4 w-4" />, '🍷 Доп. доходы (POS)', '🍷 Ancillary Revenue (POS)')}
+              <div className="space-y-0.5">
+                {renderSidebarItem('overview', <LayoutDashboard className="h-4 w-4" />, '📊 Главная (Обзор)', '📊 Overview')}
+                {renderSidebarItem('whatif', <Sliders className="h-4 w-4" />, '🎛️ Моделирование (Что-Если)', '🎛️ What-If Simulation')}
+                {renderSidebarItem('ancillary', <Landmark className="h-4 w-4" />, '🍷 Доп. доход (POS)', '🍷 Ancillary Revenue (POS)')}
                 {renderSidebarItem('crm', <Users className="h-4 w-4" />, '👥 Аналитика (CRM)', '👥 Analytics (CRM)')}
                 {renderSidebarItem('compset', <LineChart className="h-4 w-4" />, '📈 Рынок (Compset)', '📈 Market Benchmarking')}
               </div>
@@ -268,12 +268,12 @@ export default function App() {
             {/* Group 2: Центр данных департаментов */}
             <div>
               {!isCollapsed && (
-                <p className="text-[9px] font-mono font-bold tracking-wider text-[#9C8F7E] uppercase px-3 mb-2">
+                <p className="text-[9px] font-mono font-bold tracking-wider text-[#9C8F7E] uppercase px-3 mb-1.5">
                   {language === 'ru' ? 'ЦЕНТР ДАННЫХ ДЕПАРТАМЕНТОВ' : 'DEPARTMENTAL DATA'}
                 </p>
               )}
-              <div className="space-y-1">
-                {renderSidebarItem('salesmarketing', <Target className="h-4 w-4" />, '🎯 Sales & Marketing', '🎯 Sales & Marketing')}
+              <div className="space-y-0.5">
+                {renderSidebarItem('salesmarketing', <Target className="h-4 w-4" />, '🎯 Продажи и маркетинг (Sales)', '🎯 Sales & Marketing')}
                 {renderSidebarItem('finance', <Wallet className="h-4 w-4" />, '💰 Финансы & OPEX', '💰 Finance & OPEX')}
                 {renderSidebarItem('frontoffice', <Key className="h-4 w-4" />, '🔑 Front Office & Reception', '🔑 Front Office & Reception')}
                 {renderSidebarItem('fb', <Utensils className="h-4 w-4" />, '🍽️ F&B & Рестораны', '🍽️ F&B & Restaurants')}
